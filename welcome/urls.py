@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 app_name = "welcome"
-from . import views
+import welcome.views
 urlpatterns = [
     path("", views.index, name = "index")
 ]
