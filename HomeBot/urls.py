@@ -20,5 +20,5 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include("welcome.urls")),
-    path('redeem/', include("redeem.urls"))
+    path('redeem/', include("redeem.urls")),
 ]

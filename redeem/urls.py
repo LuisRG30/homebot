@@ -1,11 +1,10 @@
 from django.urls import path, include
 
-from django.contrib import admin
 
-admin.autodiscover()
+
+from . import views
 
 app_name = "redeem"
-from . import views
 urlpatterns = [
-    path("", views.index, name = "indexredeem")
+    path("", views.index, name="index")
 ]

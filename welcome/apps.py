@@ -1,8 +1,5 @@
 from django.apps import AppConfig
 
 
-class Welcome(AppConfig):
+class WelcomeConfig(AppConfig):
     name = 'welcome'
-
-class Redeem(AppConfig):
-    name = 'redeem'
