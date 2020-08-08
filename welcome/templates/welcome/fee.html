@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'welcome/fee.css' %}">
+    <title>HomeBot</title>
+</head>
+<body>
+    <h1>Cotiza</h1>
+    <form class="cf">
+        <div class="half left cf">
+            <input type="text" name="name" id="input-name" placeholder="Nombre" required>
+            <input type="email" name="email" id="input-email" placeholder="Correo Electrónico" required>
+            <input type="text" name="phone" id="input-phone" placeholder="Teléfono" required>
+            <input type="text" name="subject" id="input-subject" placeholder="Tarea" required>
+            <input type="date" name="date" id="input-date">
+            <input type="file">
+        </div>
+        <div class="half right cf">
+            <textarea name="description" type="text" id="input-description" placeholder="Descripción" required></textarea>
+        </div>  
+        <input type="submit" value="Enviar" id="input-submit">
+    </form>
+</body>
+</html>

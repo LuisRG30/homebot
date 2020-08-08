@@ -1,0 +1,86 @@
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
+
+
+html, body {
+  background: #f1f1f1;
+  font-family: 'Merriweather', sans-serif;
+  padding: 1em;
+}
+
+h1 {
+   text-align: center;
+   color: #969595;
+   text-shadow: 2px 2px white;
+}
+
+form {
+   max-width: 600px;
+   text-align: center;
+   margin: 20px auto;
+}
+
+input, textarea {
+    border:0; outline:0;
+    padding: 1em;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-family: 'Merriweather', sans-serif;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    resize: none;
+  }
+  
+  #input-submit {
+     color: white; 
+     background: rgb(103, 103, 155);
+     cursor: pointer;
+  }
+  
+  #input-submit:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 30px 0 rgba(0,0,0,0.19);
+  }
+
+  textarea {
+      height: 126px;
+  }
+}
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+  text-align: center;
+  text-shadow: 2px 2px white;
+  color: #b1b1b1;
+}
+
+.right { width: 50%; }
+
+.left {
+     margin-right: 2%; 
+     float: center;
+}
+
+
+@media (max-width: 480px) {
+  .half {
+     width: 100%; 
+     float: none;
+     margin-bottom: 0; 
+  }
+}
+
+
+/* Clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
