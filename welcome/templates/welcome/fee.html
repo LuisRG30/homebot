@@ -11,6 +11,7 @@
 <body>
     <h1>Cotiza</h1>
     <form class="cf">
+        {% csrf_token %}
         <div class="half left cf">
             <input type="text" name="name" id="input-name" placeholder="Nombre" required>
             <input type="email" name="email" id="input-email" placeholder="Correo Electrónico" required>
