@@ -6,7 +6,7 @@ html, body {
   background: #f1f1f1;
   font-family: 'Merriweather', sans-serif;
 }
-h1 {
+h1, h2 {
   text-align: center;
   color: #969595;
   text-shadow: 2px 2px white;
@@ -93,3 +93,17 @@ a{
     background-color: #2334cc;
     color: white;
   }
+
+  .foot{
+    text-align: center;
+    padding: 10%;
+  }
+
+  .foot img {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-top: 0em;
+  }
+

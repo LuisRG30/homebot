@@ -1,13 +1,18 @@
 {% extends "welcome/layout.html" %}
-
+{% load static %}
 {% block title %}
     HomeBot
 {% endblock %}
 
 {% block body %}
-    <h1>HomeBot</h1>
+    <h1>EHOMEWORK</h1>
     <div class="feewindow">
         <a href="{% url 'welcome:fee' %}"><button>Cotiza</button></a>
     </div>
+    <div class="foot">
+        Powered by
+        <img src="{% static 'welcome/logo.png' %}" alt="HOMEBOT">
+    </div>
+
     
 {% endblock %}
