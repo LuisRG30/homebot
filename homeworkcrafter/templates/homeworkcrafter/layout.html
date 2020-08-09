@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'welcome/style.css' %}">
+    <link rel="stylesheet" href="{% static 'homeworkcrafter/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="icon" href="{% static 'welcome/icon.png' %}" type="image/icon type">
+    <link rel="icon" href="{% static 'homeworkcrafter/icon.png' %}" type="image/icon type">
 </head>
 <body>
     <div class="topnav">
         <div>
-            <a class="active" href="{% url 'welcome:index' %}">Home</a>
+            <a class="active" href="{% url 'homeworkcrafter:index' %}">Home</a>
             <a href="#contact">Contacto</a>
             <a href="#about">Sobre Nosotros</a>
             <a href="#questions">Preguntas Frecuentes</a>
         </div>
         <div class="redeem">
-            <a href="{% url 'redeem:index' %}">Canjea tu Código</a>
+            <a href="{% url 'homeworkcrafter:redeem' %}">Canjea tu Código</a>
         </div>
     </div>
     {% block body %}

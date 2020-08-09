@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'welcome',
+    'homeworkcrafter',
     'redeem',
     'staff',
     'django.contrib.admin',
