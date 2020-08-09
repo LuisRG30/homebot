@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'homeworkcrafter/style.css' %}">
-    <title>HomeBot</title>
+    <link rel="stylesheet" href="{% static 'homeworkcrafter/redeem.css' %}">
+    <title>HomeworkCrafter | Redeem</title>
     <link rel="icon" href="{% static 'homeworkcrafter/icon.png' %}" type="image/icon type">
 
 </head>
@@ -17,6 +18,12 @@
     </div>
     <h1>Canjea tu Código</h1>
     <h2>Ingresa un código y descarga tus documentos</h2>
+    <form class="cf">
+        {% csrf_token %}
+        <div class="half left cf">
+            <input type="text" name="code" id="input-name" placeholder="Código" required>
+            <input type="submit" value="Enviar" id="input-submit">
+    </form>
 </body>
 </html>
 
