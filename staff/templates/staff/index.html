@@ -1,5 +1,37 @@
 {% extends "staff/layout.html" %}
-
+{% load static %}
 {% block body %}
-<h1>Pendientes</h1>
+<div class="topnav">
+    <div class="search-container">
+      <form action="", method="post">
+        <input type="text" placeholder="Materia" name="subject">
+        <input type="number" placeholder="Precio" name="cost">
+        <input type="text" placeholder="Fecha" name="date">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+</div>
+<div class="pagehead">
+    <img src="{% static 'staff/logo_big.png' %}" alt="HOMEBOT">
+</div>
+
+<table>
+    <tr>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>Detalles</th>
+    </tr>
+
+        <tr>
+            <td>Tarea</td>
+            <td>Materia</td>
+            <td>Fecha</td>
+            <td>Precio</td>
+            <td><a href="">Detalles</a></td>
+        </tr>
+
+
+</table>
 {% endblock %}
