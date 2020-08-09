@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'homeworkcrafter',
-    'redeem',
     'staff',
     'django.contrib.admin',
     'django.contrib.auth',
