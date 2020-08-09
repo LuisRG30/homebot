@@ -36,7 +36,7 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: sans-serif, sans-serif;
 }
 
 
@@ -47,7 +47,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -114,7 +114,7 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: sans-serif;
   font-size: 20px;
   line-height: 1.5;
   color: #110e0e;
@@ -122,7 +122,7 @@ iframe {
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #666666;
@@ -190,7 +190,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
+  font-family: sans-serif;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -211,7 +211,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -304,7 +304,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -416,7 +416,7 @@ iframe {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
+  font-family: sans-serif;
   display: block;
   position: absolute;
   color: #c80000;
