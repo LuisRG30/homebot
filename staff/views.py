@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 
+from homeworkcrafter.models import Homework
 
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("staff:login"))
-    return render(request, "staff/index.html")
+        return HttpResponseRedirect(reverse("staff:login"), {"message":None})
+    context = {
+        "homeworks": Homework.objects.all()
+    }
+    return render(request, "staff/index.html", context)
 
 def login_view(request):
     if request.method == "POST":
@@ -30,3 +34,15 @@ def logout_view(request):
     return render(request, "staff/login.html",{
         "message": "Sesión cerrada exitosamente."
     })
+
+def homework(request, homework_id):
+    if not request.user.is_authenticated:
+        return render(request, "staff/login.html")
+    try: 
+        homework = Homework.objects.get(pk=homework_id)
+    except Homework.DoesNotExist:
+        raise Http404("Homework does not exist")
+    context = {
+        "homework": homework
+    }
+    return render(request, "staff/homework.html", context)

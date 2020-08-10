@@ -24,15 +24,15 @@
         <th>-</th>
         <th>Detalles</th>
     </tr>
-
+    {% for homework in homeworks %}
         <tr>
             <td>Tarea</td>
             <td>Materia</td>
             <td>Fecha</td>
             <td>Precio</td>
-            <td><a href="">Detalles</a></td>
+            <td><a href="{% url 'homework' homework.id %}">Detalles</a></td>
         </tr>
-
+    {% endfor %}
 
 </table>
 {% endblock %}
