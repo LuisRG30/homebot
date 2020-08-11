@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
+from django.contrib import messages
 
 from homeworkcrafter.models import Homework
 
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("staff:login"), {"message":None})
+        return HttpResponseRedirect(reverse("staff:login"))
     context = {
         "homeworks": Homework.objects.all()
     }
