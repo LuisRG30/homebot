@@ -1,18 +1,21 @@
 {% extends "homeworkcrafter/layout.html" %}
-
+{% load static %}
 {% block title %}
     HomeworkCrafter | Delivery
 {% endblock %}
 
 {% block body %}
+    <div class="top">
+    <div class="display">
+        {% if delivery %}
+            {{ delivery }}
+        {% endif %}
 
-    {% if delivery %}
-     {{ delivery }}
-    {% endif %}
-
-    {% if files %}
-    <a href="{{ files.deliveredfile.url }}" download>Descargar</a>
-    {% else %}
-    <h2>No disponible.</h2>
-    {% endif %}
+        {% if files %}
+        <a href="{{ files.deliveredfile.url }}" download>Descargar</a>
+        {% else %}
+        <h2>No disponible.</h2>
+        {% endif %}
+    </div>
+    </div>
 {% endblock %}
