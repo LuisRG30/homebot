@@ -18,10 +18,10 @@
     </div>
     <h1>Canjea tu Código</h1>
     <h2>Ingresa un código y descarga tus documentos</h2>
-    <form class="cf" action="{% url 'homeworkcrafter:delivery' %}", method="post">
+    <form class="cf" action="{% url 'homeworkcrafter:redeem' %}", method="post">
         {% csrf_token %}
         <div class="half left cf">
-            <input type="text" name="code" id="input-name" placeholder="Código" required>
+            {{ form }}
             <input type="submit" value="Enviar" id="input-submit">
     </form>
 

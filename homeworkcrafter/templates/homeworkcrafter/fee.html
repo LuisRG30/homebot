@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Cotiza</h1>
-    <form class="cf">
+    <form class="cf" action="{% url 'homeworkcrafter:fee' %}">
         {% csrf_token %}
         <div class="half left cf">
             <input type="text" name="name" id="input-name" placeholder="Nombre" required>

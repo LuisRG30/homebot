@@ -11,6 +11,7 @@ class Homework(models.Model):
     subject = models.CharField(max_length=64)
     date = models.DateField()
     description = models.CharField(max_length=5000)
+    instruction_file = models.FileField(null = True, blank=True)
     price = models.IntegerField(null=True, blank=True)
     code = models.CharField(max_length=16, unique=True)
     paid = models.BooleanField(default=False)
