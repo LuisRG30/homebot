@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib import messages
 
 from .models import Homework, Delivery
+from.forms import RedeemForm
 
 # Create your views here.
 def index(request):
@@ -14,6 +15,7 @@ def fee(request):
     return render(request, "homeworkcrafter/fee.html")
 
 def redeem(request):
+    
     return render(request, "homeworkcrafter/redeem.html")
 
 def delivery(request):

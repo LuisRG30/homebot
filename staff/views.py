@@ -38,7 +38,7 @@ def logout_view(request):
 
 def homework(request, homework_id):
     if not request.user.is_authenticated:
-        return render(request, "staff/login.html")
+        return HttpResponseRedirect(reverse("staff:login"))
     try: 
         homework = Homework.objects.get(pk=homework_id)
     except Homework.DoesNotExist:

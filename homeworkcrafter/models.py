@@ -2,6 +2,7 @@ import os
 from django.conf import settings
 from django.db import models
 
+
 # Create your models here.
 class Homework(models.Model):
     homework = models.CharField(max_length=64)
@@ -10,7 +11,7 @@ class Homework(models.Model):
     subject = models.CharField(max_length=64)
     date = models.DateField()
     description = models.CharField(max_length=5000)
-    price = models.IntegerField(blank=True)
+    price = models.IntegerField(null=True, blank=True)
     code = models.CharField(max_length=16, unique=True)
     paid = models.BooleanField(default=False)
 
@@ -18,7 +19,7 @@ class Homework(models.Model):
         return f"[{self.homework}, {self.subject}, {self.date}, {self.price}]"
 
 class Delivery(models.Model):
-    homework = models.OneToOneField(Homework, on_delete=models.CASCADE, primary_key=True)
+    homework = models.OneToOneField(Homework, on_delete=models.CASCADE, primary_key=True, related_name="assignments")
     deliveredfile = models.FileField(null=True)
 
     def __str__(self):
