@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Cotiza</h1>
-    <form class="cf" action="{% url 'homeworkcrafter:fee' %}">
+    <form class="cf" action="{% url 'homeworkcrafter:fee' %}" method="post">
         {% csrf_token %}
         <div class="half left cf">
             {{ form }}
