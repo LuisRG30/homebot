@@ -21,10 +21,9 @@ def fee(request):
             level = form.cleaned_data["level"]
             subject = form.cleaned_data["subject"]
             date = form.cleaned_data["date"]
-            instructions_file = form.cleaned_data["instructions_file"]
+            instruction_file = form.cleaned_data["instruction_file"]
             description = form.cleaned_data["description"]
-            h = Homework(homework=homework, email=email, number=number, level=level, subject=subject, date=date,
-            instructions_file=instructions_file, description=description)
+            h = Homework(homework=homework, email=email, number=number, level=level, subject=subject, date=date, instruction_file=instruction_file, description=description)
             h.save()
             return render(request, "homeworkcrafter/successfee.html")
 
