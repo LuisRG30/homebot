@@ -13,16 +13,8 @@
     <form class="cf" action="{% url 'homeworkcrafter:fee' %}">
         {% csrf_token %}
         <div class="half left cf">
-            <input type="text" name="name" id="input-name" placeholder="Nombre" required>
-            <input type="email" name="email" id="input-email" placeholder="Correo Electrónico" required>
-            <input type="number" name="phone" id="input-phone" placeholder="Teléfono" required>
-            <input type="text" name="subject" id="input-subject" placeholder="Tarea" required>
-            <input type="date" name="date" id="input-date">
-            <input type="file">
-        </div>
-        <div class="half right cf">
-            <textarea name="description" type="text" id="input-description" placeholder="Descripción" required></textarea>
-        </div>  
+            {{ form }}
+        </div> 
         <input type="submit" value="Enviar" id="input-submit">
     </form>
 </body>

@@ -12,7 +12,23 @@ def index(request):
     return render(request, "homeworkcrafter/index.html")
 
 def fee(request):
-    form = forms.Feeform()
+    if request.method == "POST":
+        form = FeeForm(request.POST)
+        if form.is_valid():
+            homework = form.cleaned_data["homework"]
+            email = form.cleaned_data["email"]
+            number = form.cleaned_data["number"]
+            level = form.cleaned_data["level"]
+            subject = form.cleaned_data["subject"]
+            date = form.cleaned_data["date"]
+            instructions_file = form.cleaned_data["instructions_file"]
+            description = form.cleaned_data["description"]
+            h = Homework(homework=homework, email=email, number=number, level=level, subject=subject, date=date,
+            instructions_file=instructions_file, description=description)
+            h.save()
+            return render(request, "homeworkcrafter/successfee.html")
+
+    form = FeeForm()
     return render(request, "homeworkcrafter/fee.html", {"form": form})
 
 def redeem(request):

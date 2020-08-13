@@ -8,6 +8,7 @@ class Homework(models.Model):
     homework = models.CharField(max_length=64)
     email = models.CharField(max_length=64)
     number = models.CharField(max_length=32)
+    level = models.CharField(max_length=32, default="bachillerato")
     subject = models.CharField(max_length=64)
     date = models.DateField()
     description = models.CharField(max_length=5000)
