@@ -4,7 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib import messages
 
-from homeworkcrafter.models import Homework
+from homeworkcrafter.models import Homework, Delivery
+from staff.models import Profile
 
 # Create your views here.
 def index(request):
@@ -46,4 +47,16 @@ def homework(request, homework_id):
     context = {
         "homework": homework
     }
+    request.session["job"] = homework_id
     return render(request, "staff/homework.html", context)
+
+def addjob(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    if request.method == "POST":
+        homework_id = request.session["job"]
+        profile = Profile.objects.get(user=request.user)
+        profile.job = Homework.objects.get(pk=homework_id)
+        profile.save()
+        return render(request, "staff/addjob.html")
+    return HttpResponseRedirect(reverse("staff:index"))

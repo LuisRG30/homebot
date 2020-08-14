@@ -1,7 +1,43 @@
 {% extends "staff/layout.html" %}
-
+{% load static %}
 {% block body %}
-    <div>
-        {{ homework }}
+    <div class="pagehead">
+        <img src="{% static 'staff/logo_big.png' %}" alt="HOMEBOT">
     </div>
+    <table>
+        <tr>
+            <th>Tarea</th>
+            <td>{{ homework.homework }}</td>
+        </tr>
+        <tr>
+            <th>Nivel</th>
+            <td>{{ homework.level }}</td>
+        </tr>
+        <tr>
+            <th>Materia</th>
+            <td>{{ homework.subject }}</td>
+        </tr>
+        <tr>
+            <th>Fecha de Entrega</th>
+            <td>{{ homework.date }}</td>
+        </tr>
+        <tr>
+            <th>Precio</th>
+            <td>${{ homework.price }}</td>
+        </tr>
+        <tr>
+            <th>Descripción</th>
+            <td>{{ homework.description }}</td>
+        </tr>
+    </table>
+    {% if homework.instruction_file %}
+        <div class="down">
+            <a href="{{ homework.instruction_file.url }}" download>Archivo</a>
+        </div>
+    {% endif %}
+    <form action="{% url 'staff:addjob' %}" method="post">
+        {% csrf_token %}
+        <div class="down"><input type="submit" value="Registrar" id="register"></div>
+    </form>
+
 {% endblock %}
