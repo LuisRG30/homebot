@@ -60,3 +60,24 @@ def addjob(request):
         profile.save()
         return render(request, "staff/addjob.html")
     return HttpResponseRedirect(reverse("staff:index"))
+
+def profile(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    context = {
+        "user": user,
+        "profile": profile
+    }
+    return render(request, "staff/profile.html", context)
+
+def assignment(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    profile = Profile.objects.get(user=request.user)
+    job = profile.job
+    if job is not None:
+        return render(request, "staff/assignment.html", {"homework": job})
+    else:
+        return HttpResponseRedirect(reverse("staff:profile"))

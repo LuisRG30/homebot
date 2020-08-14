@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'staff/profile.css' %}">
+<link rel="icon" href="{% static 'staff/icon.png' %}" type="image/icon type">
+<title>Staff | Profile</title>
+</head>
+<body>
+
+<div class="card">
+  <img src="{% static 'staff/logo_size_invert.jpg' %}" alt="HOMEBOT" style="width: 100%">
+  <h1>{{ user }}</h1>
+  <p class="title">{{ profile.role }}</p>
+  <p>Asignación:</p>
+  {% if profile.job %}
+    <a href="{% url 'staff:assignment' %}">{{ profile.job }}</a>
+  {% else %}
+    Sin trabajo pendiente
+  {% endif %}
+  <!--<div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div></-->
+  <p><a href="{% url 'staff:index' %}"><button>Explora</button></a></p>
+</div>
+
+</body>
+</html>

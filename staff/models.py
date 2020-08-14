@@ -8,7 +8,8 @@ from homeworkcrafter.models import Homework
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     job = models.OneToOneField(Homework, null=True, blank=True, on_delete=models.SET_NULL, related_name="worker")
-
+    role = models.CharField(max_length=32, default="Colaborador")
+    
 
     def __str__(self):
         return f"{self.user} working on {self.job}"
