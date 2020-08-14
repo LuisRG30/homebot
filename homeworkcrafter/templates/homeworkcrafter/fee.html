@@ -10,7 +10,10 @@
 </head>
 <body>
     <h1>Cotiza</h1>
-    <form class="cf" action="{% url 'homeworkcrafter:fee' %}" method="post">
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <form class="cf" action="{% url 'homeworkcrafter:fee' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="half left cf">
             {{ form }}

@@ -1,21 +1,28 @@
 {% extends "homeworkcrafter/layout.html" %}
 {% load static %}
 {% block title %}
-    HomeworkCrafter | Delivery
+    Delivery
 {% endblock %}
 
 {% block body %}
-    <div class="top">
-    <div class="display">
-        {% if delivery %}
-            {{ delivery }}
-        {% endif %}
+<div class="card">
+  <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+    <img src="{% static 'homeworkcrafter/logo_size_invert.jpg' %}" alt="HOMEBOT" id="received">
+  </div>
+    <h1>¡Éxito!</h1> 
+    <p>Recibimos tu solicitud<br/> ¡Estamos en contacto!</p>
 
-        {% if files %}
-        <a href="{{ files.deliveredfile.url }}" download>Descargar</a>
-        {% else %}
-        <h3>Descarga no disponible.</h3>
-        {% endif %}
+    <p>Estamos trabajando en tu pedido:</p>
+
+    <div class="data">{{ delivery.homework }}</div>
+    <p>Estado de tu pedido:</p>
+    <div class="data">
+      {% if files %}
+      <a href="{{ files.deliveredfiles.url }}" download>Descarga tu trabajo</a>
+      {% else %}
+        {{ message }}
+      {% endif %}
     </div>
-    </div>
+    
+</div>
 {% endblock %}

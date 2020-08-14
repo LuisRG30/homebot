@@ -6,6 +6,7 @@ html, body {
   background: #f1f1f1;
   font-family: 'Merriweather', sans-serif;
   padding: 1em;
+  text-align: center;
 }
 
 h1 {
@@ -20,6 +21,10 @@ form {
    margin: 20px auto;
 }
 
+label {
+  display: block;
+  padding-top: 2%;
+}
 
 input, textarea {
     border:0; outline:0;
