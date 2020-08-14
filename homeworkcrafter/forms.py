@@ -22,7 +22,7 @@ class RedeemForm(forms.Form):
 
 class FeeForm(forms.Form):
     homework = forms.CharField(label="Tarea")
-    email = forms.EmailField(label="Correo Electrónico")
+    email = forms.CharField(label="Correo Electrónico")
     number = forms.CharField(label="Teléfono")
     level = forms.CharField(label="Grado Académico", widget=forms.Select(choices=grades))
     subject = forms.CharField(label="Materia", widget=forms.Select(choices=subjects))

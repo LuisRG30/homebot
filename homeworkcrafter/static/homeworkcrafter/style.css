@@ -99,6 +99,10 @@ a{
     padding: 10%;
   }
 
+  .profile {
+    width: 10%;
+    float: left;
+  }
   .foot img {
     display: flex;
     margin-left: auto;
