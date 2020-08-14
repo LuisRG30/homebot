@@ -19,12 +19,9 @@
   {% else %}
     Sin trabajo pendiente
   {% endif %}
-  <!--<div style="margin: 24px 0;">
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a>  
-    <a href="#"><i class="fa fa-linkedin"></i></a>  
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-  </div></-->
+  <div style="margin: 24px 0;">
+    <a href="{% url 'staff:logout' %}" style="color:rgb(187, 64, 122)">Logout</a> 
+  </div>
   <p><a href="{% url 'staff:index' %}"><button>Explora</button></a></p>
 </div>
 
