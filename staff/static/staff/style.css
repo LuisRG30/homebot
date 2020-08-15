@@ -248,6 +248,19 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  width: 10%;
+}
+
+#finish {
+  background-color: #5f7086;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
   width: 90%;
 }
 
