@@ -21,7 +21,7 @@ class Homework(models.Model):
         return f"[{self.homework}, {self.subject}, {self.date}, {self.price}]"
 
 class Delivery(models.Model):
-    homework = models.OneToOneField(Homework, on_delete=models.CASCADE, primary_key=True, related_name="assignments")
+    homework = models.OneToOneField(Homework, on_delete=models.CASCADE, primary_key=True, related_name="delivery")
     deliveredfile = models.FileField(null=True)
 
     def __str__(self):

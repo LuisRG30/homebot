@@ -1,18 +1,19 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404, HttpResponseBadRequest
 from django.urls import reverse
 from django.contrib import messages
 
 from homeworkcrafter.models import Homework, Delivery
 from staff.models import Profile
+from .forms import DeliveryForm 
 
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("staff:login"))
     context = {
-        "homeworks": Homework.objects.all()
+        "homeworks": Homework.objects.filter(worker=None, delivery=None, paid=False)
     }
     return render(request, "staff/index.html", context)
 
@@ -58,7 +59,7 @@ def addjob(request):
         profile = Profile.objects.get(user=request.user)
         profile.job = Homework.objects.get(pk=homework_id)
         profile.save()
-        return render(request, "staff/addjob.html")
+        return HttpResponseRedirect(reverse("staff:profile"))
     return HttpResponseRedirect(reverse("staff:index"))
 
 def profile(request):
@@ -78,6 +79,24 @@ def assignment(request):
     profile = Profile.objects.get(user=request.user)
     job = profile.job
     if job is not None:
-        return render(request, "staff/assignment.html", {"homework": job})
+        form = DeliveryForm()
+        return render(request, "staff/assignment.html", {"homework": job, "form": form})
     else:
         return HttpResponseRedirect(reverse("staff:profile"))
+
+def submit(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    if request.method == "POST":
+        form = DeliveryForm(request.POST, request.FILES)
+        if form.is_valid():
+            worker = Profile.objects.get(user=request.user)
+            homework = Homework.objects.get(worker=worker)
+            d = Delivery(homework=homework, deliveredfile=form.cleaned_data["file"])
+            d.save()
+            worker.job = None
+            worker.save()
+            return HttpResponseRedirect(reverse("staff:profile"))
+        else:
+            return HttpResponseBadRequest(content="Unexpected error.")
+    return HttpResponseRedirect(reverse("staff:profile"))

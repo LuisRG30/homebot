@@ -7,4 +7,4 @@ class SearchForm(forms.Form):
     pass
 
 class DeliveryForm(forms.Form):
-    pass
+    file = forms.FileField(label="Adjunta un archivo", required=False)

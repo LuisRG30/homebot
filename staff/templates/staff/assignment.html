@@ -35,9 +35,10 @@
             <a href="{{ homework.instruction_file.url }}" download>Archivo</a>
         </div>
     {% endif %}
-    <form action="" method="post">
+    <form action="{% url 'staff:submit' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="down"><input type="submit" value="Entregar" id="register"></div>
+        {{ form }}
+        <input type="submit" value="Entregar" id="register">
     </form>
 
 {% endblock %}

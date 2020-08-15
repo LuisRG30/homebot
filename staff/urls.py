@@ -11,5 +11,6 @@ urlpatterns = [
     path("<int:homework_id>", views.homework, name="homework"),
     path("addjob", views.addjob, name="addjob"),
     path("profile", views.profile, name="profile"),
-    path("assignment", views.assignment, name="assignment")
+    path("assignment", views.assignment, name="assignment"),
+    path("submit", views.submit, name="submit")
 ]
