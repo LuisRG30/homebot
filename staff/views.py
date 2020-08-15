@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from homeworkcrafter.models import Homework, Delivery
 from staff.models import Profile
-from .forms import DeliveryForm 
+from .forms import DeliveryForm, LoginForm 
 
 # Create your views here.
 def index(request):
@@ -19,24 +19,33 @@ def index(request):
 
 def login_view(request):
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(reverse("staff:index"))
-        else:
-            return render(request, "staff/login.html", {
-                "message": "Usuario o contraseña incorrectos."
-            })
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.username
+            password = form.password
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect(reverse("staff:index"))
+            else:
+                form = LoginForm()
+                context = {
+                    "message": "Usuario o contraseña incorrectos.",
+                    "form": form
+                }
+                return render(request, "staff/login.html", context)
     else:
-        return render(request, "staff/login.html")
+        form = LoginForm()
+        return render(request, "staff/login.html", {"form": form})
 
 def logout_view(request):
     logout(request)
-    return render(request, "staff/login.html",{
-        "message": "Sesión cerrada exitosamente."
-    })
+    form = LoginForm()
+    context = {
+        "message": "Sesión cerrada exitosamente.",
+        "form": form
+    }
+    return render(request, "staff/login.html", context)
 
 def homework(request, homework_id):
     if not request.user.is_authenticated:

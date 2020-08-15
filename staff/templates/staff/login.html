@@ -8,25 +8,25 @@
     <img src="{% static 'staff/logo.png' %}" alt="HOMEBOT">
     </div>
     <form class="login100-form validate-form" action="{% url 'staff:login' %}" method="post">
-    {% csrf_token %}
-    <span class="login100-form-title">
-    Member Login
-    </span>
-    <div class="wrap-input100 validate-input">
-    <input class="input100" type="text" name="username" placeholder="Usuario" required>
-    <span class="focus-input100"></span>
-    </div>
+        {% csrf_token %}
+        <span class="login100-form-title">
+        Member Login
+        </span>
+        <div class="wrap-input100 validate-input">
+        {{ form.username }}
+        <span class="focus-input100"></span>
+        </div>
 
-    <div class="wrap-input100 validate-input">
-    <input class="input100" type="password" name="password" placeholder="Contraseña" required> 
-    <span class="focus-input100"></span>
-    </div>
-    {% if message %}
-        <div class="txt1">{{ message }}</div>
-    {% endif %}
-    <div class="container-login100-form-btn">
-        <input type="submit" class="login100-form-btn" value="LOGIN">
-    </div>
+        <div class="wrap-input100 validate-input">
+        {{ form.password }}
+        <span class="focus-input100"></span>
+        </div>
+        {% if message %}
+            <div class="txt1">{{ message }}</div>
+        {% endif %}
+        <div class="container-login100-form-btn">
+            <input type="submit" class="login100-form-btn" value="LOGIN">
+        </div>
     </form>
     </div>
     </div>

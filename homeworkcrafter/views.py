@@ -57,7 +57,7 @@ def redeem(request):
             if delivery.paid == True:
                 context = {
                     "delivery": delivery,
-                    "files": files
+                    "doc": files
                 }
             else:
                 message = "Tu pedido está listo. Estamos esperando tu pago."

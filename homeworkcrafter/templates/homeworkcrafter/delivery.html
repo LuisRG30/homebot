@@ -17,8 +17,8 @@
     <div class="data">{{ delivery.homework }}</div>
     <p>Estado de tu pedido:</p>
     <div class="data">
-      {% if files %}
-      <a href="{{ files.deliveredfiles.url }}" download>Descarga tu trabajo</a>
+      {% if doc %}
+      <a href="{{ doc.deliveredfile.url }}" download>Descarga tu trabajo</a>
       {% else %}
         {{ message }}
       {% endif %}
