@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block body %}
+    <section id="banner">
+        <div class="inner">
+            <h1>HomeworkCrafter: <span><br />
+             by HOMEBOT</span></h1>
+            <ul class="actions">
+                <li><a href="{% url 'homeworkcrafter:fee' %}" class="button alt">Cotiza</a></li>
+            </ul>
+        </div>
+    </section>
+    <!--
     <h1>HOMEWORK CRAFTER</h1>
     <div class="feewindow">
         <a href="{% url 'homeworkcrafter:fee' %}"><button>Cotiza</button></a>
@@ -12,7 +22,7 @@
     <div class="foot">
         Powered by
         <img src="{% static 'homeworkcrafter/logo.png' %}" alt="HOMEBOT">
-    </div>
+    </div>-->
 
     
 {% endblock %}

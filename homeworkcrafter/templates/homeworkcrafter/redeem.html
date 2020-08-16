@@ -1,33 +1,23 @@
+{% extends "homeworkcrafter/layout.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'homeworkcrafter/style.css' %}">
-    <link rel="stylesheet" href="{% static 'homeworkcrafter/redeem.css' %}">
-    <title>Redeem</title>
-    <link rel="icon" href="{% static 'homeworkcrafter/icon.png' %}" type="image/icon type">
-
-</head>
-<body>
-    <div class="topnav">
-        <div>
-            <a class="active" href="{% url 'homeworkcrafter:index' %}">Home</a>
-        </div>
-    </div>
+    {% block title %}Redeem{% endblock %}
+    {% block body %}
     <h1>Canjea tu Código</h1>
     <h2>Ingresa un código y descarga tus documentos</h2>
     <form class="cf" action="{% url 'homeworkcrafter:redeem' %}", method="post">
         {% csrf_token %}
         <div class="half left cf">
             {{ form }}
-            <input type="submit" value="Enviar" id="input-submit">
+            <ul class="actions">
+                <li><input type="submit" value="Enviar" class="alt" /></li>
+            </ul>
     </form>
 
     {% if message %}
         <h3>{{ message }}</h3>
     {% endif %}
+
+    {% endblock %}
 </body>
 </html>
 

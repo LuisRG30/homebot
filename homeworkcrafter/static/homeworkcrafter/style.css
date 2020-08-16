@@ -2,16 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather);
 
 
-html, body {
-  background: #f1f1f1;
-  font-family: 'Merriweather', sans-serif;
-}
-h1, h2 {
-  text-align: center;
-  color: #969595;
-  text-shadow: 2px 2px white;
-}
-
 .feewindow {
   float: center;
   width: 48%;
@@ -111,3 +101,24 @@ a{
     margin-top: 0em;
   }
 
+  
+body {
+  text-align: center;
+  }
+  
+  div {
+      text-align: center;
+      vertical-align: middle;
+  }
+  
+  #received {
+      width: 50%;
+      padding-top: 25%;
+  }
+  
+  .data {
+      padding: 1%;
+      color: rgb(115, 120, 165);
+      text-align: center;
+      vertical-align: middle;
+  }
