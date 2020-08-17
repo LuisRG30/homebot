@@ -15,9 +15,9 @@
         <div class="inner">
             <a href="{% url 'homeworkcrafter:index' %}" class="logo">HomeworkCrafter</a>
             <nav id="nav">
-                <a href="">Contacto</a>
-                <a href="">Sobre Nosotros</a>
-                <a href="">Preguntas Frecuentes</a>
+                <a href="{% url 'homeworkcrafter:index' %}#two">Sobre Nosotros</a>
+                <a href="{% url 'homeworkcrafter:index' %}#three">Preguntas Frecuentes</a>
+                <a href="{% url 'homeworkcrafter:index' %}#footer">Contacto</a>
                 <a href="{% url 'homeworkcrafter:redeem' %}">Usa tu Código</a>
             </nav>
         </div>

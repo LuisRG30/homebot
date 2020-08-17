@@ -2241,7 +2241,7 @@
 	select,
 	textarea {
 		background: none;
-		border-color: #fceced;
+		border-color: #636b83;
 	}
 
 		input[type="text"]:focus,
@@ -3359,6 +3359,23 @@
 		}
 
 /* Banner */
+	#redeem {
+		background-image: url("blank.jpg");
+		background-color: #59677c;
+		color: #f2a3a5;
+		padding: 13em 0 11em 0;
+		background-color: #0c0c0c;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 15% left;
+		text-align: left;
+		position: relative;
+		z-index: 9999;
+	}
+	#redeem input[type="text"] {
+		width: 20%;
+		margin-bottom: 2%;
+	}
 
 	#banner {
 		background-color: #59677c;
@@ -3746,7 +3763,8 @@
 		background-color: #606085;
 		color: #868585;
 		padding: 4em 0 2em 0;
-		background: #606085;
+		background: #9d9db4;
+		background-image: url("mail.jpg");
 	}
 
 		#footer input, #footer select, #footer textarea {
