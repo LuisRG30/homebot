@@ -129,6 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LfoK8AZAAAAAE3IRcQ4UvS-ZBwSP7y_2cfPVuE5'
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
