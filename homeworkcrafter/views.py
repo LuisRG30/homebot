@@ -60,20 +60,19 @@ def redeem(request):
                     "form": form
                 }
                 return render(request, "homeworkcrafter/redeem.html", context)
-            try:
-                files = Delivery.objects.get(homework=delivery)
-            except Delivery.DoesNotExist:
-                return render(request, "homeworkcrafter/delivery.html", {"delivery": delivery, "message": "Descarga no disponible todavía."})
             if delivery.paid == True:
+                try:
+                    files = Delivery.objects.get(homework=delivery)
+                except Delivery.DoesNotExist:
+                    return render(request, "homeworkcrafter/delivery.html", {"delivery": delivery, "message": "Descarga no disponible todavía."})
                 context = {
                     "delivery": delivery,
                     "doc": files
                 }
             else:
-                message = "Tu pedido está listo. Estamos esperando tu pago."
                 context = {
-                    "message": message,
-                    "delivery": delivery
+                    "delivery": delivery,
+                    "message": "Estamos esperando tu pago."
                 }
             return render(request, "homeworkcrafter/delivery.html", context)
         else:

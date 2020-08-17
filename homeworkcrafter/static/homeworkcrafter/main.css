@@ -3974,3 +3974,19 @@
 			}
 
 		}
+
+	#feeform {
+		background-image: url("car.jpg");
+		background-repeat: no-repeat;
+  		background-size: 100% 100%;
+	}
+
+	#feeform input, select, textarea {
+		width: 30%;
+	}
+
+	#feeform input[type="submit"] {
+		width: 10%;
+	}
+
+	
