@@ -6,6 +6,7 @@ from django.db import models
 # Create your models here.
 class Homework(models.Model):
     homework = models.CharField(max_length=64)
+    name = models.CharField(max_length=32)
     email = models.CharField(max_length=64)
     number = models.CharField(max_length=32)
     level = models.CharField(max_length=32, default="bachillerato")
@@ -27,7 +28,11 @@ class Delivery(models.Model):
     def __str__(self):
         return f"[Code: {self.homework.code}, Paid: {self.homework.paid}]"
 
-
 """    def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.deliveredfile.name))
         super(Delivery, self).delete(*args, **kwargs)"""
+
+class Message(models.Model):
+    name = models.CharField(max_length=32)
+    email = models.CharField(max_length=32)
+    message = models.CharField(max_length=5000)

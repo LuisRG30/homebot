@@ -103,18 +103,19 @@
             <header>
                 <h2>ENVÍANOS UN MENSAJE</h2>
             </header>
-            <form method="post" action="#">
+            <form method="post" action="{% url 'homeworkcrafter:index' %}">
+                {% csrf_token %}
                 <div class="field half first">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" />
+                    <label for="name">Nombre</label>
+                    {{ form.name }}
                 </div>
                 <div class="field half">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" />
+                    {{ form.email }}
                 </div>
                 <div class="field">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="6"></textarea>
+                    <label for="message">Mensaje</label>
+                    {{ form.message }}
                 </div>
                 <ul class="actions">
                     <li><input type="submit" value="Send Message" class="alt" /></li>

@@ -4,20 +4,30 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib import messages
 
-from .models import Homework, Delivery
-from .forms import RedeemForm, FeeForm
+from .models import Homework, Delivery, Message
+from .forms import RedeemForm, FeeForm, MessageForm
 
 import secrets
 
 # Create your views here.
 def index(request):
-    return render(request, "homeworkcrafter/index.html")
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+            m = Message(name=name, email=email, message=message)
+            m.save()
+    form = MessageForm()
+    return render(request, "homeworkcrafter/index.html", {"form": form})
 
 def fee(request):
     if request.method == "POST":
         form = FeeForm(request.POST, request.FILES)
         if form.is_valid():
             homework = form.cleaned_data["homework"]
+            name = form.cleaned_data["name"]
             email = form.cleaned_data["email"]
             number = form.cleaned_data["number"]
             level = form.cleaned_data["level"]
@@ -25,7 +35,7 @@ def fee(request):
             date = form.cleaned_data["date"]
             description = form.cleaned_data["description"]
             code = secrets.token_hex(6)
-            h = Homework(homework=homework, email=email, number=number, level=level, subject=subject, date=date, description=description, code=code, instruction_file=form.cleaned_data["file"])
+            h = Homework(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, description=description, code=code, instruction_file=form.cleaned_data["file"])
             h.save()
             return render(request, "homeworkcrafter/successfee.html", {"code": code})
         else:

@@ -22,6 +22,7 @@ class RedeemForm(forms.Form):
 
 class FeeForm(forms.Form):
     homework = forms.CharField(label="Tarea")
+    name = forms.CharField(label="Nombre")
     email = forms.CharField(label="Correo Electrónico")
     number = forms.CharField(label="Teléfono")
     level = forms.CharField(label="Grado Académico", widget=forms.Select(choices=grades))
@@ -30,3 +31,7 @@ class FeeForm(forms.Form):
     file = forms.FileField(label="Adjunta un archivo", required=False)
     description = forms.CharField(widget=forms.Textarea, label="Descripción")
 
+class MessageForm(forms.Form):
+    name = forms.CharField()
+    email = forms.CharField()
+    message = forms.CharField(widget=forms.Textarea())
