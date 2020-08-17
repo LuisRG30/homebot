@@ -14,7 +14,8 @@
         <div class="half left cf">
             {{ form }}
         </div> 
-        <input type="submit" value="Enviar" id="input-submit" class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit'>
+        <input type="submit" action="{% url 'homeworkcrafter:fee' %}" method="post" value="Enviar">
+        <button class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit' style="visibility: hidden;"></button>
     </form>
 </main>
 {% endblock %}

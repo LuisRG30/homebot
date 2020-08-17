@@ -33,9 +33,10 @@ def fee(request):
             level = form.cleaned_data["level"]
             subject = form.cleaned_data["subject"]
             date = form.cleaned_data["date"]
+            time = form.cleaned_data["time"]
             description = form.cleaned_data["description"]
             code = secrets.token_hex(6)
-            h = Homework(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, description=description, code=code, instruction_file=form.cleaned_data["file"])
+            h = Homework(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, time=time, description=description, code=code, instruction_file=form.cleaned_data["file"])
             h.save()
             return render(request, "homeworkcrafter/successfee.html", {"code": code})
         else:

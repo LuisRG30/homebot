@@ -10,8 +10,9 @@
         <div class="half left cf">
             {{ form }}
             <ul class="actions">
-                <li><input type="submit" value="Enviar" class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit' /></li>
+                <li><input type="submit" value="Enviar" class="alt button"/></li>
             </ul>
+            <button class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit' style="visibility: hidden;"></button>
     </form>
 
     {% if message %}

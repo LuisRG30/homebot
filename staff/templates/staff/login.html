@@ -25,8 +25,9 @@
             <div class="txt1">{{ message }}</div>
         {% endif %}
         <div class="container-login100-form-btn">
-            <input type="submit" class="login100-form-btn g-recaptcha" value="LOGIN" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit'>
+            <input type="submit" class="login100-form-btn" action="{% url 'staff:login' %}">
         </div>
+        <button class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit' style="visibility: hidden;"></button>
     </form>
     </div>
     </div>

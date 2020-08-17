@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib import messages
 
 from homeworkcrafter.models import Homework, Delivery
-from staff.models import Profile
+from staff.models import Profile, Review
 from .forms import DeliveryForm, LoginForm 
 
 # Create your views here.
@@ -105,6 +105,9 @@ def submit(request):
             d.save()
             worker.job = None
             worker.save()
+            #Add empty review
+            r = Review(homework=homework, profile=worker)
+            r.save()
             return HttpResponseRedirect(reverse("staff:profile"))
         else:
             return HttpResponseBadRequest(content="Unexpected error.")

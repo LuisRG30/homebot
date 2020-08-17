@@ -27,7 +27,8 @@ class FeeForm(forms.Form):
     number = forms.CharField(label="Teléfono")
     level = forms.CharField(label="Grado Académico", widget=forms.Select(choices=grades))
     subject = forms.CharField(label="Materia", widget=forms.Select(choices=subjects))
-    date = forms.DateField(label="Fecha de Entrega", widget=forms.SelectDateWidget)
+    date = forms.DateField(label="Fecha de Entrega", widget=forms.SelectDateWidget())
+    time = forms.TimeField(input_formats = ['%H:%M',], label='Hora de entrega – HH:MM')
     file = forms.FileField(label="Adjunta un archivo", required=False)
     description = forms.CharField(widget=forms.Textarea, label="Descripción")
 

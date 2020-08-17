@@ -12,6 +12,7 @@ class Homework(models.Model):
     level = models.CharField(max_length=32, default="bachillerato")
     subject = models.CharField(max_length=64)
     date = models.DateField()
+    time = models.TimeField()
     description = models.CharField(max_length=5000)
     instruction_file = models.FileField(null = True, blank=True)
     price = models.IntegerField(null=True, blank=True)
