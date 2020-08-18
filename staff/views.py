@@ -106,7 +106,7 @@ def submit(request):
             worker.job = None
             worker.save()
             #Add empty review
-            r = Review(homework=homework, profile=worker)
+            r = Review(homework=homework, worker=worker)
             r.save()
             return HttpResponseRedirect(reverse("staff:profile"))
         else:
