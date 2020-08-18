@@ -5,11 +5,11 @@
 {% endblock %}
 {% block body %}
 <main id="videoform">
-    <h1>Video Clases</h1>
+    <h1>Contrata un Trabajo Express</h1>
     {% if message %}
         {{ message }}
     {% endif %}
-    <form class="cf" action="{% url 'homeworkcrafter:video' %}" method="post" enctype="multipart/form-data">
+    <form class="cf" action="{% url 'homeworkcrafter:express' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="half left cf">
             {{ form }}

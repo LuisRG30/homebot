@@ -3763,8 +3763,8 @@
 		background-color: #606085;
 		color: #535252;
 		padding: 4em 0 2em 0;
-		background: #676777;
-		background-image: url("mail.jpg");
+		background: #3c3c44;
+		background-image: url("phone.jpg");
 	}
 
 		#footer input, #footer select, #footer textarea {
@@ -3852,7 +3852,7 @@
 				#footer input[type="button"].alt.icon:before,
 				#footer button.alt.icon:before,
 				#footer .button.alt.icon:before {
-					color: #f8d1d2;
+					color: #ffffff;
 				}
 
 			#footer input[type="submit"].special,
@@ -3976,7 +3976,7 @@
 		}
 
 	#feeform {
-		background-image: url("note.jpg");
+		background-image: url("video.jpg");
 		background-repeat: no-repeat;
   		background-size: 100% 100%;
 	}
@@ -3990,7 +3990,7 @@
 	}
 
 	#videoform {
-		background-image: url("video.jpg");
+		background-image: url("wave.jpg");
 		background-repeat: no-repeat;
   		background-size: 100% 100%;
 	}

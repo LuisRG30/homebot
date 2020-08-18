@@ -4,8 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib import messages
 
-from .models import Homework, Delivery, Message, Video
-from .forms import RedeemForm, FeeForm, MessageForm, VideoForm
+from .models import Homework, Delivery, Message, Express
+from .forms import RedeemForm, FeeForm, MessageForm, ExpressForm
 
 import secrets
 
@@ -47,27 +47,30 @@ def fee(request):
     form = FeeForm()
     return render(request, "homeworkcrafter/fee.html", {"form": form})
 
-def video(request):
+def express(request):
     if request.method == "POST":
-        form = VideoForm(request.POST)
+        form = ExpressForm(request.POST)
         if form.is_valid():
+            homework = form.cleaned_data["homework"]
             name = form.cleaned_data["name"]
             email = form.cleaned_data["email"]
             number = form.cleaned_data["number"]
             level = form.cleaned_data["level"]
             subject = form.cleaned_data["subject"]
+            date = form.cleaned_data["date"]
             time = form.cleaned_data["time"]
             description = form.cleaned_data["description"]
-            v = Video(name=name, email=email, number=number, level=level, subject=subject, time=time, description=description)
-            v.save()
-            return render(request, "homeworkcrafter/video.html")
+            code = secrets.token_hex(6)
+            e = Express(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, time=time, description=description, code=code, instruction_file=form.cleaned_data["file"])
+            e.save()
+            return render(request, "homeworkcrafter/successexpress.html", {"code": code})
         else:
-            form = FeeForm()
+            form = ExpressForm()
             context = {"message": "Algo inesperado sucedió. Es posible que se haya introcido un dato de manera erronea.", "form": form}
-            return render(request, "homeworkcrafter/video.html", context)
+            return render(request, "homeworkcrafter/express.html", context)
     
-    form = VideoForm()
-    return render(request, "homeworkcrafter/video.html", {"form": form})
+    form = ExpressForm()
+    return render(request, "homeworkcrafter/express.html", {"form": form})
 
 def redeem(request):
     if request.method == "POST":

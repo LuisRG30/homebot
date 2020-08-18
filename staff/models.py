@@ -19,3 +19,6 @@ class Review(models.Model):
     worker = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="review")
     rating = models.IntegerField(null=True, blank=True)
     comment = models.CharField(max_length=5000, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.rating} {self.worker}"

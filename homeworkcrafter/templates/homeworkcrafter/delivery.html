@@ -9,12 +9,13 @@
   <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
     <img src="{% static 'homeworkcrafter/logo_size_invert.jpg' %}" alt="HOMEBOT" id="received">
   </div>
+  <blockquote>
     <h1>¡Éxito!</h1> 
     <p>Recibimos tu solicitud<br/> ¡Estamos en contacto!</p>
 
     <p>Estamos trabajando en tu pedido:</p>
-
-    <div class="data">{{ delivery.homework }}</div>
+    <p>{{ delivery.homework }}</p>
+    
     <p>Estado de tu pedido:</p>
     <div class="data">
       {% if doc %}
@@ -23,6 +24,6 @@
         {{ message }}
       {% endif %}
     </div>
-    
+  </blockquote>
 </div>
 {% endblock %}

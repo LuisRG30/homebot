@@ -38,13 +38,5 @@ class Message(models.Model):
     email = models.CharField(max_length=32)
     message = models.CharField(max_length=5000)
 
-class Video(models.Model):
-    name = models.CharField(max_length=32)
-    email = models.CharField(max_length=64)
-    number = models.CharField(max_length=32)
-    level = models.CharField(max_length=32, default="bachillerato")
-    subject = models.CharField(max_length=64)
-    time = models.FloatField()
-    description = models.CharField(max_length=5000)
-    price = models.IntegerField(null=True, blank=True)
-    paid = models.BooleanField(default=False)
+class Express(Homework):
+    pass
