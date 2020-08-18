@@ -9,5 +9,5 @@ urlpatterns = [
     path("express", views.express, name="express"),
     path("infohome", views.infohome, name="infohome"),
     path("infoexpress", views.infoexpress, name="infoexpress"),
-    path("inforeview", views.infohome, name="inforeview")
+    path("review", views.review, name="review")
 ]

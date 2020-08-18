@@ -1,0 +1,21 @@
+{% extends "homeworkcrafter/layout.html" %}
+{% load static %}
+{% block title %}
+    HomeworkCrafter | Review
+{% endblock %}
+{% block body %}
+<main id="reviewform">
+    <h1>Califícanos</h1>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <form class="cf" action="{% url 'homeworkcrafter:review' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="half left cf">
+            {{ form }}
+        </div> 
+        <input type="submit" value="Enviar">
+        <button class="g-recaptcha" data-sitekey="6LfoK8AZAAAAANDt_EvgSx1HJmxsJ_BZ634oJT90"  data-callback='onSubmit'  data-action='submit' style="visibility: hidden;"></button>
+    </form>
+</main>
+{% endblock %}

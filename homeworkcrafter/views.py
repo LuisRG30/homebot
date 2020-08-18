@@ -5,7 +5,9 @@ from django.urls import reverse
 from django.contrib import messages
 
 from .models import Homework, Delivery, Message, Express
+from staff.models import Review, Profile
 from .forms import RedeemForm, FeeForm, MessageForm, ExpressForm
+from staff.forms import ReviewForm
 
 import secrets
 
@@ -111,4 +113,25 @@ def infohome(request):
 
 def infoexpress(request):
     return render(request, "homeworkcrafter/infoexpress.html")
+
+def review(request):
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            code = form.cleaned_data["code"]
+            rating = form.cleaned_data["rating"]
+            comment = form.cleaned_data["comment"]
+            try:
+                h = Homework.objects.get(code=code)
+            except Homework.DoesNotExist:
+                return render(request, "homeworkcrafter/review,html", {"message": "No existe el pedido que quieres calificar.", "form": form})
+            r = Review.objects.get(homework=h)
+            r.rating = rating
+            r.comment = comment
+            r.save()
+            return render(request, "homeworkcrafter/review.html", {"message": "Recibimos tu calificación. Gracias."})
+        else:
+            return render(request, "homeworkcrafter/review.html", {"message": "Formulario inválido, vuelve a intentarlo."})
+    form = ReviewForm()
+    return render(request, "homeworkcrafter/review.html", {"form": form})
 

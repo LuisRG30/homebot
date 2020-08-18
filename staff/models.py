@@ -21,4 +21,4 @@ class Review(models.Model):
     comment = models.CharField(max_length=5000, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.rating} {self.worker}"
+        return f"[{self.rating}] {self.worker}"

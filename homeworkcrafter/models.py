@@ -20,7 +20,7 @@ class Homework(models.Model):
     paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"[{self.homework}, {self.subject}, {self.date}, {self.price}]"
+        return f"[{self.subject}, {self.date}, {self.price}]"
 
 class Delivery(models.Model):
     homework = models.OneToOneField(Homework, on_delete=models.CASCADE, primary_key=True, related_name="delivery")
@@ -39,4 +39,5 @@ class Message(models.Model):
     message = models.CharField(max_length=5000)
 
 class Express(Homework):
-    pass
+    def __str__(self):
+        return f"[{self.subject}, {self.date}, {self.price}]"
