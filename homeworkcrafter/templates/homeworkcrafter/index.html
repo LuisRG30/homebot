@@ -67,7 +67,7 @@
                     </header>
                     <p>Presiona el botón "Cotiza" en la parte superior de la página principal y llena tus datos. Recibirás un código que debes conservar para recibir tu trabajo en el apartado "Usa tu Código".</p>
                     <ul class="actions">
-                        <li><a href="#" class="button alt">Ver más</a></li>
+                        <li><a href="{% url 'homeworkcrafter:infohome' %}" class="button alt">Ver más</a></li>
                     </ul>
                 </div>
             </article>
@@ -79,7 +79,7 @@
                     </header>
                     <p>Da click en el botón de "cotiza" en "Express", llena el formulario y espera nuestra respuesta. Pondremos en contacto a un colaborador universitario y se haga tu pedido de inmediato.</p>
                     <ul class="actions">
-                        <li><a href="#" class="button alt">Ver más</a></li>
+                        <li><a href="{% url 'homeworkcrafter:infoexpress' %}" class="button alt">Ver más</a></li>
                     </ul>
                 </div>
             </article>
@@ -102,7 +102,7 @@
         <div class="inner">
             <header>
                 <h2>ENVÍANOS UN MENSAJE</h2>
-                <h6>homeworkcrafter@gmail.com</h6>
+                <h5>homeworkcrafter@gmail.com</h5>
             </header>
             <form method="post" action="{% url 'homeworkcrafter:index' %}">
                 {% csrf_token %}

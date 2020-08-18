@@ -106,3 +106,9 @@ def redeem(request):
     form = RedeemForm()
     return render(request, "homeworkcrafter/redeem.html", {"form": form, "message": None})
 
+def infohome(request):
+    return render(request, "homeworkcrafter/infohome.html")
+
+def infoexpress(request):
+    return render(request, "homeworkcrafter/infoexpress.html")
+

@@ -6,10 +6,10 @@
 
 
 {% block body %}
-    <p>Success</p>
+<blockquote>
+    <h1>¡Éxito!</h1>
+    <p>Tu código de consulta es: {{ code }}</p>
 
-    {% if code %}
-        {{ code }}
-    {% endif %}
-
+    <p>Ingresa tu código en el apartado "Usa tu Código" para consultar el estado de tu pedido.</p>
+</blockquote>
 {% endblock %}

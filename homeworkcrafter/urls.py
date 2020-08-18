@@ -6,5 +6,8 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("cotiza", views.fee, name="fee"),
     path("redeem", views.redeem, name="redeem"),
-    path("express", views.express, name="express")
+    path("express", views.express, name="express"),
+    path("infohome", views.infohome, name="infohome"),
+    path("infoexpress", views.infoexpress, name="infoexpress"),
+    path("inforeview", views.infohome, name="inforeview")
 ]
