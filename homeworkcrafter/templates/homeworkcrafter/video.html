@@ -4,12 +4,12 @@
     HomeworkCrafter
 {% endblock %}
 {% block body %}
-<main id="feeform">
-    <h1>Trabajos Académicos</h1>
+<main id="videoform">
+    <h1>Video Clases</h1>
     {% if message %}
         {{ message }}
     {% endif %}
-    <form class="cf" action="{% url 'homeworkcrafter:fee' %}" method="post" enctype="multipart/form-data">
+    <form class="cf" action="{% url 'homeworkcrafter:video' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="half left cf">
             {{ form }}

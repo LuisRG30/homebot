@@ -3976,7 +3976,7 @@
 		}
 
 	#feeform {
-		background-image: url("car.jpg");
+		background-image: url("note.jpg");
 		background-repeat: no-repeat;
   		background-size: 100% 100%;
 	}
@@ -3987,6 +3987,16 @@
 
 	#feeform input[type="submit"] {
 		width: 10%;
+	}
+
+	#videoform {
+		background-image: url("video.jpg");
+		background-repeat: no-repeat;
+  		background-size: 100% 100%;
+	}
+
+	#videoform input, select, textarea {
+		width: 30%;
 	}
 
 	

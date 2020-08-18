@@ -36,3 +36,12 @@ class MessageForm(forms.Form):
     name = forms.CharField()
     email = forms.CharField()
     message = forms.CharField(widget=forms.Textarea())
+
+class VideoForm(forms.Form):
+    name = forms.CharField(label="Nombre")
+    email = forms.CharField(label="Correo Electrónico")
+    number = forms.CharField(label="Teléfono")
+    level = forms.CharField(label="Grado Académico", widget=forms.Select(choices=grades))
+    subject = forms.CharField(label="Materia", widget=forms.Select(choices=subjects))
+    time = forms.FloatField(label="Duración en Horas")
+    description = forms.CharField(widget=forms.Textarea, label="Descripción")
