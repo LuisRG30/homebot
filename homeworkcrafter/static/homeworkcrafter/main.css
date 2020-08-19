@@ -1,6 +1,18 @@
 {% load static %}
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
+ 
+ h1 {
+	 display: block;
+	 word-break: break-word;
+ }
 
+ p {
+    word-break: break-word;
+}
+
+#wrapper {
+	overflow-x: hidden;
+}
 /*
 	Introspect by TEMPLATED
 	templated.co @templatedco
@@ -8,7 +20,10 @@
 */
 
 /* Reset */
-
+#banner {
+	position: absolute;
+}
+ 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -3114,7 +3129,7 @@
 		#header .inner {
 			max-width: 65em;
 			width: calc(100% - 6em);
-			margin: 0 auto;
+			margin: 0;
 			position: relative;
 		}
 
@@ -3129,19 +3144,12 @@
 
 		#header .logo {
 			font-family: 'sans-serif';
-			display: inline-block;
 			height: inherit;
-			left: 0;
 			line-height: inherit;
-			margin: 0;
-			padding: 0;
-			position: absolute;
-			top: 0;
 			color: #5f6586;
 			font-size: 1.50em;
 			text-transform: none;
 			font-weight: normal;
-			padding: 0;
 		}
 
 			#header .logo:hover {
@@ -3192,13 +3200,7 @@
 		display: inline-block;
 	}
 
-		@media screen and (max-width: 980px) {
 
-			#nav {
-				display: none;
-			}
-
-		}
 
 	.navPanelToggle {
 		position: fixed;
@@ -3390,6 +3392,7 @@
 		position: relative;
 		z-index: 9999;
 	}
+
 
 		#banner input, #banner select, #banner textarea {
 			color: #ffffff;
@@ -3619,6 +3622,7 @@
 	#two {
 		padding: 6em 0 4em 0;
 		background: #f3f3f3;
+		background-size: cover;
 		background: -moz-linear-gradient(left, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 		background: -webkit-linear-gradient(left, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 		background: linear-gradient(to right, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
@@ -3653,6 +3657,7 @@
 
 			#two {
 				padding: 4em 0 2em 0;
+				background-size: cover;
 				background: -moz-linear-gradient(top, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 				background: -webkit-linear-gradient(top, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
 				background: linear-gradient(to bottom, #f3f3f3 0%, #f3f3f3 50%, #f7f7f7 0%, #f7f7f7 100%);
@@ -3692,6 +3697,7 @@
 
 	#three {
 		padding: 6em 0 4em 0;
+		background-size: cover;
 	}
 
 		#three .inner {

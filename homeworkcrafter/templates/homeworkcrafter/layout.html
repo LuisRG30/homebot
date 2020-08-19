@@ -11,10 +11,11 @@
 
 </head>
 <body>
+    <div id="wrapper">
     <header id="header">
         <div class="inner">
-            <a href="{% url 'homeworkcrafter:index' %}" class="logo">HomeworkCrafter</a>
             <nav id="nav">
+                <a href="{% url 'homeworkcrafter:index' %}" class="logo">HomeworkCrafter</a>
                 <a href="{% url 'homeworkcrafter:index' %}#two">Nuestros Servicios</a>
                 <a href="{% url 'homeworkcrafter:index' %}#three">Preguntas Frecuentes</a>
                 <a href="{% url 'homeworkcrafter:index' %}#footer">Contacto</a>
@@ -24,6 +25,7 @@
     </header>
     {% block body %}
     {% endblock %}
+    </div>
 </body>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
