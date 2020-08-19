@@ -1,6 +1,9 @@
 {% load static %}
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Pacifico");
- 
+img {
+	max-width: 100%;
+} 
+
  h1 {
 	 display: block;
 	 word-break: break-word;
@@ -25,8 +28,34 @@
 	#bars {
 		visibility: visible;
 	}
+	#pctitle {
+		visibility: hidden;
+	}
 
+	.mobiletitle {
+		visibility: visible;
+	}
+}
 
+@media screen and (min-width: 1201px) {
+
+	.fixop {
+		visibility: visible;
+	}
+	#bars {
+		visibility: hidden;
+	}
+	#pctitle {
+		visibility: visible;
+	}
+
+	.mobiletitle {
+		visibility: hidden;
+	}
+}
+
+#mobiletitle {
+	visibility: hidden;
 }
 /*
 	Introspect by TEMPLATED

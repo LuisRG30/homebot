@@ -13,8 +13,8 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="{% url 'homeworkcrafter:index' %}#two">Nuestros Servicios</a>
-        <a href="{% url 'homeworkcrafter:index' %}#three">Preguntas Frecuentes</a>
+        <a href="{% url 'homeworkcrafter:index' %}#two">Servicios</a>
+        <a href="{% url 'homeworkcrafter:index' %}#three">Información</a>
         <a href="{% url 'homeworkcrafter:index' %}#footer">Contacto</a>
         <a href="{% url 'homeworkcrafter:redeem' %}">Usa tu Código</a>
       </div>
@@ -43,7 +43,7 @@
 </script>
 <script>
     function openNav() {
-      document.getElementById("mySidenav").style.width = "40%";
+      document.getElementById("mySidenav").style.width = "300px";
     }
     
     function closeNav() {
