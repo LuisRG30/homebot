@@ -13,6 +13,21 @@
 #wrapper {
 	overflow-x: hidden;
 }
+#bars {
+	visibility: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+
+	.fixop {
+		visibility: hidden;
+	}
+	#bars {
+		visibility: visible;
+	}
+
+
+}
 /*
 	Introspect by TEMPLATED
 	templated.co @templatedco
@@ -20,9 +35,7 @@
 */
 
 /* Reset */
-#banner {
-	position: absolute;
-}
+
  
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
@@ -3393,14 +3406,6 @@
 		z-index: 9999;
 	}
 
-	@media screen and (max-width: 800px) {
-
-		#header {
-			height: 12.5%;
-		}
-
-	}
-
 		#banner input, #banner select, #banner textarea {
 			color: #ffffff;
 		}
@@ -4022,4 +4027,41 @@
 		width: 30%;
 	}
 
-	
+	.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10004;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
