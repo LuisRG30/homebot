@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = "3a6d90070ff7092d32bb382ef80e61f3d4136bc5697aa2ff"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = []
 
 
@@ -128,7 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-GOOGLE_RECAPTCHA_SECRET_KEY = os.environ["GOOGLE_RECAPTCHA_SECRET_KEY"]
+GOOGLE_RECAPTCHA_SECRET_KEY = 'os.environ["GOOGLE_RECAPTCHA_SECRET_KEY"]'
 
 
 # Activate Django-Heroku.
