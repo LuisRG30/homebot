@@ -8,6 +8,7 @@ from .models import Homework, Delivery, Message, Express
 from staff.models import Review, Profile
 from .forms import RedeemForm, FeeForm, MessageForm, ExpressForm
 from staff.forms import ReviewForm
+from staff.mail import *
 
 import secrets
 
