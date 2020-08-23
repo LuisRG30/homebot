@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib import messages
+from django.core.mail import send_mail
 
 from .models import Homework, Delivery, Message, Express
 from staff.models import Review, Profile
@@ -100,7 +101,7 @@ def redeem(request):
             else:
                 context = {
                     "delivery": delivery,
-                    "message": "Estamos esperando tu pago."
+                    "message": "Estamos esperando tu pago. Los detalles deben estar en tu correo electrónico."
                 }
             return render(request, "homeworkcrafter/delivery.html", context)
         else:

@@ -4,6 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404, HttpRespons
 from django.urls import reverse
 from django.contrib import messages
 
+from staff.mail import *
+
 from homeworkcrafter.models import Homework, Delivery
 from staff.models import Profile, Review
 from .forms import DeliveryForm, LoginForm 
@@ -112,3 +114,7 @@ def submit(request):
         else:
             return HttpResponseBadRequest(content="Unexpected error.")
     return HttpResponseRedirect(reverse("staff:profile"))
+
+def mail(request):
+    delivery_mail("Dalias", "homeworkcrafter@gmail.com")
+    return HttpResponse("OK")
