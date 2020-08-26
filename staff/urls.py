@@ -13,5 +13,8 @@ urlpatterns = [
     path("profile", views.profile, name="profile"),
     path("assignment", views.assignment, name="assignment"),
     path("submit", views.submit, name="submit"),
+    path("price", views.price, name="price"),
+    path("pricep/<int:homework_id>", views.pricep, name="pricep"),
+    path("addprice", views.addprice, name="addprice"),
     path("mail", views.mail, name="mail")
 ]

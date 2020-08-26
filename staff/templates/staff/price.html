@@ -1,0 +1,30 @@
+{% extends "staff/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="pagehead">
+    <img src="{% static 'staff/logo_big.png' %}" alt="HOMEBOT">
+    <h2>PRICING</h2>
+</div>
+
+
+<table>
+    <tr>
+        <th>Tarea</th>
+        <th>Materia</th>
+        <th>Fecha</th>
+        <th>Precio</th>
+        <th>Detalles</th>
+    </tr>
+    {% for homework in homeworks %}
+        <tr>
+            <td>{{ homework.homework }}</td>
+            <td>{{ homework.subject }}</td>
+            <td>{{ homework.date }}</td>
+            <td>{{ homework.price }}</td>
+            <td><a href="{% url 'staff:pricep' homework.id %}">Valorar</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

@@ -13,9 +13,9 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="{% url 'homeworkcrafter:index' %}#two">Servicios</a>
-        <a href="{% url 'homeworkcrafter:index' %}#three">Información</a>
-        <a href="{% url 'homeworkcrafter:index' %}#footer">Contacto</a>
+        <a href="{% url 'homeworkcrafter:index' %}#two" onclick= "closeNav()">Servicios</a>
+        <a href="{% url 'homeworkcrafter:index' %}#three" onclick= "closeNav()">Información</a>
+        <a href="{% url 'homeworkcrafter:index' %}#footer" onclick= "closeNav()">Contacto</a>
         <a href="{% url 'homeworkcrafter:redeem' %}">Usa tu Código</a>
       </div>
     <div id="wrapper">
@@ -50,6 +50,5 @@
       document.getElementById("mySidenav").style.width = "0";
     }
 
-    document.addEventListener("DOMContentLoaded", closeNav())
     </script>
 </html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect, Http404, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseRedirect, Http404, HttpResponseBadRequest, HttpResponseForbidden
 from django.urls import reverse
 from django.contrib import messages
 
@@ -8,14 +8,14 @@ from staff.mail import *
 
 from homeworkcrafter.models import Homework, Delivery
 from staff.models import Profile, Review
-from .forms import DeliveryForm, LoginForm 
+from .forms import DeliveryForm, LoginForm, PriceForm 
 
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("staff:login"))
     context = {
-        "homeworks": Homework.objects.filter(worker=None, delivery=None, paid=False)
+        "homeworks": Homework.objects.filter(worker=None, delivery=None, paid=False).exclude(price=None)
     }
     return render(request, "staff/index.html", context)
 
@@ -118,6 +118,49 @@ def submit(request):
             return HttpResponseBadRequest(content="Unexpected error.")
     return HttpResponseRedirect(reverse("staff:profile"))
 
+def price(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    if not request.user.is_staff:
+        return HttpResponseForbidden("No tienes acceso a esta página.")
+    context = {
+        "homeworks": Homework.objects.filter(price=None)
+    }
+    return render(request, "staff/price.html", context)
+
+def pricep(request, homework_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    if not request.user.is_staff:
+        return HttpResponseForbidden("No tienes acceso a esta página.")
+    try: 
+        homework = Homework.objects.get(pk=homework_id)
+    except Homework.DoesNotExist:
+        raise Http404("Homework does not exist")
+    form = PriceForm()
+    context = {
+        "homework": homework,
+        "form": form
+    }
+    request.session["toprice"] = homework_id
+    return render(request, "staff/pricep.html", context)
+
+def addprice(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("staff:login"))
+    if not request.user.is_staff:
+        return HttpResponseForbidden("No tienes acceso a esta página.")
+    if request.method == "POST":
+        form = PriceForm(request.POST)
+        if form.is_valid():
+            price = form.cleaned_data["price"]
+            h = Homework.objects.get(pk=request.session["toprice"])
+            h.price = price
+            h.save()
+            return HttpResponseRedirect(reverse("staff:price"))
+        else:
+            return HttpResponse("Algo en tu asignación de precio salió mal. Inténtalo de nuevo.")
+    return HttpResponseBadRequest("Error requesting this page.")
 
 def mail(request):
-    return HttpResponse("All correct.")
+    return HttpResponse("200")

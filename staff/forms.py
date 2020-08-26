@@ -22,3 +22,6 @@ class ReviewForm(forms.Form):
     code = forms.CharField(label="Código de tu pedido")
     rating = forms.IntegerField(widget=forms.Select(choices=grades), label="Calificación")
     comment = forms.CharField(widget=forms.Textarea, label="Comentario")
+
+class PriceForm(forms.Form):
+    price = forms.IntegerField(label="Precio")
