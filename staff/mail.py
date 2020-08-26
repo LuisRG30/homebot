@@ -19,8 +19,24 @@ def code_mail(homework):
 
     send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 
-def price_mail(name, email, price, account):
-    pass
+def price_mail(homework, account):
+    subject = "Puedes proceder con el pago"
+    context = {
+        "name": homework.name,
+        "code": homework.code,
+        "subject": homework.subject,
+        "date": homework.date,
+        "time": homework.time,
+        "description": homework.description,
+        "price": homework.price,
+        "account": account
+    }
+    html_message = render_to_string("staff/pricemail.html", context)
+    plain_message = strip_tags(html_message)
+    from_email = "homeworkcrafter@gmail.com"
+    to = homework.email
+
+    send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 
 def delivery_mail(name, email):
     subject = "Tu pedido está listo"

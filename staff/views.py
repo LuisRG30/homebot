@@ -157,6 +157,9 @@ def addprice(request):
             h = Homework.objects.get(pk=request.session["toprice"])
             h.price = price
             h.save()
+            #send mail with payment details
+            price_mail(h, "No disponible.")
+
             return HttpResponseRedirect(reverse("staff:price"))
         else:
             return HttpResponse("Algo en tu asignación de precio salió mal. Inténtalo de nuevo.")

@@ -1,0 +1,54 @@
+<html>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+    <blockquote>
+        <p>Hola, {{ name }}.</p>
+        <h3>Tenemos la cotización de tu pedido: "{{ name }}"</h3>
+        <h2>Nuestro equipo cotizó tu tarea en <b>${{ price }}</b></h2>
+        <p>Deposita a la cuenta <b>{{ account }}</b> y en breve podrás descargar tu pedido completado. <br>
+        Envía por correo el comprobante de pago. <br>
+        Si tienes alguna duda o aclaración sobre el precio, responde este correo con tu propuesta.</p>
+        
+
+        <br>
+        <br>
+        <h4>Tu pedido:</h4>
+
+        <table>
+            <tr>
+                <th>Tarea</th>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <th>Materia</th>
+                <td>{{ subject }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Entrega</th>
+                <td>{{ date }}</td>
+            </tr>
+            <tr>
+                <th>Hora</th>
+                <td>{{ time }}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td>{{ description }}</td>
+            </tr>
+            <tr>
+                <th>Código</th>
+                <td>{{ code }}</td>
+            </tr>
+        </table>
+
+        <p>Ingresa tu código en el apartado <a href="http://www.homeworkcrafter.com/redeem">Usa tu Código</a> para consultar el estado de tu pedido.</p>
+        <br>
+        <br>
+        <h2>HomeworkCrafter</h2>
+        <p>Gracias por su preferencia.</p>
+    </blockquote>
+</html>
