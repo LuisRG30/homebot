@@ -1,4 +1,10 @@
 <html>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
     <blockquote>
         <p>Hola, {{ name }}.</p>
         <h3>Tu código de consulta es: {{ code }}</h3>
@@ -9,6 +15,32 @@
 
         <br>
         <br>
+        <h4>Tu pedido:</h4>
+
+        <table>
+            <tr>
+                <th>Tarea</th>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <th>Materia</th>
+                <td>{{ subject }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Entrega</th>
+                <td>{{ date }}</td>
+            </tr>
+            <tr>
+                <th>Hora</th>
+                <td>{{ time }}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td>{{ description }}</td>
+            </tr>
+        </table>
+
+
         <br>
         <br>
         <h2>HomeworkCrafter</h2>

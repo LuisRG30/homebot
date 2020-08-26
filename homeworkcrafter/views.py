@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib import messages
-from django.core.mail import send_mail
 
 from .models import Homework, Delivery, Message, Express
 from staff.models import Review, Profile
@@ -11,6 +10,8 @@ from .forms import RedeemForm, FeeForm, MessageForm, ExpressForm
 from staff.forms import ReviewForm
 
 import secrets
+
+from staff.mail import *
 
 # Create your views here.
 def index(request):
@@ -41,6 +42,7 @@ def fee(request):
             code = secrets.token_hex(6)
             h = Homework(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, time=time, description=description, code=code, instruction_file=form.cleaned_data["file"])
             h.save()
+            code_mail(homework=h)
             return render(request, "homeworkcrafter/successfee.html", {"code": code})
         else:
             form = FeeForm()
@@ -66,6 +68,7 @@ def express(request):
             code = secrets.token_hex(6)
             e = Express(homework=homework, name=name, email=email, number=number, level=level, subject=subject, date=date, time=time, description=description, code=code, instruction_file=form.cleaned_data["file"])
             e.save()
+            code_mail(homework=e)
             return render(request, "homeworkcrafter/successexpress.html", {"code": code})
         else:
             form = ExpressForm()

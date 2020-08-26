@@ -2,12 +2,20 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-def code_mail(name, email, code):
+def code_mail(homework):
     subject = "Recibimos tu Pedido"
-    html_message = render_to_string("staff/codemail.html", {"name": name, "code": code})
+    context = {
+        "name": homework.name,
+        "code": homework.code,
+        "subject": homework.subject,
+        "date": homework.date,
+        "time": homework.time,
+        "description": homework.description
+    }
+    html_message = render_to_string("staff/codemail.html", context)
     plain_message = strip_tags(html_message)
     from_email = "homeworkcrafter@gmail.com"
-    to = email
+    to = homework.email
 
     send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 

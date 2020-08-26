@@ -1,4 +1,5 @@
 {% extends "homeworkcrafter/layout.html" %}
+{% load static %}
 
 {% block title %}
     HomeworkCrafter | Success
@@ -10,6 +11,11 @@
     <h1>¡Éxito!</h1>
     <p>Tu código de consulta es: {{ code }}</p>
 
-    <p>Ingresa tu código en el apartado "Usa tu Código" para consultar el estado de tu pedido.</p>
+    <p>Ingresa tu código en el apartado "Usa tu Código" para consultar el estado de tu pedido.<br>
+    También enviamos un correo con la información. <br>
+    Luego, enviaremos otro con información de precio y pago.</p>
+
+    <img src="{% static 'homeworkcrafter/logo.png' %}" alt="HOMEBOT">
+
 </blockquote>
 {% endblock %}

@@ -110,11 +110,14 @@ def submit(request):
             #Add empty review
             r = Review(homework=homework, worker=worker)
             r.save()
+
+            #Send email with notification
+            delivery_mail(name=homework.name, email= homework.email)
             return HttpResponseRedirect(reverse("staff:profile"))
         else:
             return HttpResponseBadRequest(content="Unexpected error.")
     return HttpResponseRedirect(reverse("staff:profile"))
 
+
 def mail(request):
-    delivery_mail("Dalias", "homeworkcrafter@gmail.com")
-    return HttpResponse("OK")
+    return HttpResponse("All correct.")
