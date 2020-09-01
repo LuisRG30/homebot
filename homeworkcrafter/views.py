@@ -115,8 +115,8 @@ def redeem(request):
 def infohome(request):
     return render(request, "homeworkcrafter/infohome.html")
 
-def infoexpress(request):
-    return render(request, "homeworkcrafter/infoexpress.html")
+def infosecurity(request):
+    return render(request, "homeworkcrafter/infosecurity.html")
 
 def review(request):
     if request.method == "POST":

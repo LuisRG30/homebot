@@ -15,7 +15,7 @@ def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("staff:login"))
     context = {
-        "homeworks": Homework.objects.filter(worker=None, delivery=None, paid=False).exclude(price=None)
+        "homeworks": Homework.objects.filter(worker=None, delivery=None, paid=True).exclude(price=None)
     }
     return render(request, "staff/index.html", context)
 

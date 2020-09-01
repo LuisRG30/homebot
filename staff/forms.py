@@ -24,4 +24,4 @@ class ReviewForm(forms.Form):
     comment = forms.CharField(widget=forms.Textarea, label="Comentario")
 
 class PriceForm(forms.Form):
-    price = forms.IntegerField(label="Precio")
+    price = forms.IntegerField(label="Precio", widget=forms.NumberInput(attrs={'class': 'input100'}))

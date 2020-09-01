@@ -5,6 +5,7 @@ from django.utils.html import strip_tags
 def code_mail(homework):
     subject = "Recibimos tu Pedido"
     context = {
+        "homework": homework.homework,
         "name": homework.name,
         "code": homework.code,
         "subject": homework.subject,
@@ -22,6 +23,7 @@ def code_mail(homework):
 def price_mail(homework, account):
     subject = "Puedes proceder con el pago"
     context = {
+        "homework": homework.homework,
         "name": homework.name,
         "code": homework.code,
         "subject": homework.subject,

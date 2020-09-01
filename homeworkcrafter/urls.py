@@ -8,6 +8,6 @@ urlpatterns = [
     path("redeem", views.redeem, name="redeem"),
     path("express", views.express, name="express"),
     path("infohome", views.infohome, name="infohome"),
-    path("infoexpress", views.infoexpress, name="infoexpress"),
+    path("infosecurity", views.infosecurity, name="infosecurity"),
     path("review", views.review, name="review")
 ]
