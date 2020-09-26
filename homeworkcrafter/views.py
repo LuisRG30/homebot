@@ -132,8 +132,10 @@ def stripe_webhook(request):
 
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
-        print("Payment was successful.")
-        # TODO: run some custom code here
+        to_be_paid = Homework.objects.get(pk=request.session["id"])
+        to_be_paid.paid = True
+        to_be_paid.save()
+
 
     return HttpResponse(status=200)
 
@@ -166,6 +168,7 @@ def redeem(request):
                     "message": "Estamos esperando tu pago. Los detalles deben estar en tu correo electrónico.",
                     "paymentoptions": True
                 }
+                request.session["id"] = delivery.id
                 request.session["topay"] = delivery.price * 100
             return render(request, "homeworkcrafter/delivery.html", context)
         else:
