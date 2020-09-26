@@ -110,7 +110,7 @@ def create_checkout_session(request):
             return JsonResponse({"sessionId": checkout_session["id"]})
         except Exception as e:
             return JsonResponse({"error": str(e)})
-"""
+
 @csrf_exempt
 def stripe_webhook(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -136,7 +136,7 @@ def stripe_webhook(request):
         # TODO: run some custom code here
 
     return HttpResponse(status=200)
-"""
+
 def redeem(request):
     if request.method == "POST":
         form = RedeemForm(request.POST)

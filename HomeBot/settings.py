@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "bullshit"
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = []
 
 
@@ -128,7 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-GOOGLE_RECAPTCHA_SECRET_KEY = "bullshit"
+GOOGLE_RECAPTCHA_SECRET_KEY = os.environ["GOOGLE_RECAPTCHA_SECRET_KEY"]
 
 
 # Activate Django-Heroku.
@@ -147,5 +147,6 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
 #Stripe info
-STRIPE_PUBLISHABLE_KEY = "pk_test_51HV0LjDW2gyEIEC08vj5S89GiYYrNMLazcDZ1zsqI9wn7kVlzq1KJNPP7T0qO3J7FjXxo9vtotUwGzyBFKutwQW3007C1cckM1"
-STRIPE_SECRET_KEY = "sk_test_51HV0LjDW2gyEIEC0fMlU8zG1FRcQtIGRNm2XS7ZqSW2WgQlUJPg7j3WVjLrNXc9CZA2aNplaMBnnYU7wBzqtUeOM00SCoa22IC"
+STRIPE_PUBLISHABLE_KEY = os.environ["STRIPE_PUBLISHABLE_KEY"]
+STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
+STRIPE_ENDPOINT_SECRET = os.environ["STRIPE_ENDPOINT_SECRET"]
