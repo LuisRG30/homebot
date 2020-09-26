@@ -23,10 +23,17 @@
       {% else %}
         {{ message }}
       {% endif %}
+      <hr>
+      {% if paymentoptions %}
+      <button id="submitBtn">Pagar</button>
+      {% endif %}
     </div>
+
 
     <img src="{% static 'homeworkcrafter/logo.png' %}" alt="HOMEBOT">
   </blockquote>
   
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'homeworkcrafter/main.js' %}"></script>
 {% endblock %}
