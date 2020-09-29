@@ -153,6 +153,8 @@ def redeem(request):
                     "form": form
                 }
                 return render(request, "homeworkcrafter/redeem.html", context)
+            if delivery.price == None:
+                return render(request, "homeworkcrafter/delivery.html", {"delivery": delivery, "message": "Cotización en proceso."})
             if delivery.paid == True:
                 try:
                     files = Delivery.objects.get(homework=delivery)
